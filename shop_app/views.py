@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 
 def base_view(request):
-    return HttpResponse("All ok!")
+    return HttpResponse("Test travis!")
