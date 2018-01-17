@@ -4,16 +4,16 @@ python:
 install:
   - pip install -r requirements.txt
 script:
-  - python -m pytest
+  - pytest
 
 after_success:
   - pip install coveralls
-  - coveralls --data_file=.coverage --config_file=.coveragerc
+  - coveralls
 
 deploy:
   provider: heroku
   api_key:
-    secure: 82529779-fc29-4144-9a23-94862245ae7e
+    - 82529779-fc29-4144-9a23-94862245ae7e
   app: kaktysig-python-exam
   on:
     repo: kaktyshiny/python_exam_2018
