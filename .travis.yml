@@ -1,0 +1,21 @@
+language: python
+python:
+  - "3.6"
+install:
+  - pip install -r requirements.txt
+script:
+  - python -m pytest
+
+after_success:
+  - pip install coveralls
+  - coveralls
+
+deploy:
+  provider: heroku
+  api_key:
+    - 82529779-fc29-4144-9a23-94862245ae7e
+  app: kaktysig-python-exam
+  run:
+    - 'python src/blog_api/manage.py makemigrations'
+    - 'python src/blog_api/manage.py migrate'
+    - 'python src/blog
