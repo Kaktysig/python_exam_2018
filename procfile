@@ -1,1 +1,1 @@
-web: gunicorn django_shop.wsgi --lo
+web: gunicorn python_exam.wsgi --lo
