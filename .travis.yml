@@ -16,6 +16,6 @@ deploy:
     - 82529779-fc29-4144-9a23-94862245ae7e
   app: kaktysig-python-exam
   run:
-    - 'python src/blog_api/manage.py makemigrations'
-    - 'python src/blog_api/manage.py migrate'
-    - 'python src/blog
+    - 'python manage.py makemigrations'
+    - 'python manage.py migrate'
+    - 'python manage.py runserver'
