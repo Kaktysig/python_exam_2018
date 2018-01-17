@@ -8,7 +8,7 @@ script:
 
 after_success:
   - pip install coveralls
-  - coveralls --rcfile=.coveragerc
+  - coveralls --data_file=.coverage
 
 deploy:
   provider: heroku
