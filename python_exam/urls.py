@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 from shop_app.views import base_view
 
 urlpatterns = [
@@ -23,3 +26,8 @@ urlpatterns = [
 
     url(r'^$', base_view, name='home'),
 ]
+
+urlpatterns += static(
+    settings.STATIC_URL,
+    document_root=settings.STATIC_ROOT,
+)
