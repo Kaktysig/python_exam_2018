@@ -1,0 +1,23 @@
+language: python
+python:
+  - "3.6"
+install:
+  - pip install -r requirements.txt
+script:
+  - python -m pytest
+
+after_success:
+  - pip install coveralls --rcfile=.coveragerc
+  - coveralls
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: 82529779-fc29-4144-9a23-94862245ae7e
+  app: kaktysig-python-exam
+  on:
+    repo: kaktyshiny/python_exam_2018
+  run:
+    - 'python manage.py makemigrations'
+    - 'python manage.py migrate'
+    - 'python manage.py runserver'
