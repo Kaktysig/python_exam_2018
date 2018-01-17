@@ -1,1 +1,1 @@
-web: gunicorn python_exam.wsgi --lo
+web: gunicorn python_exam_2018.wsgi --lo
