@@ -7,8 +7,8 @@ script:
   - python -m pytest
 
 after_success:
-  - pip install coveralls --rcfile=.coveragerc
-  - coveralls
+  - pip install coveralls
+  - coveralls --rcfile=.coveragerc
 
 deploy:
   provider: heroku
