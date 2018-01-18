@@ -50,7 +50,7 @@ class CartSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Cart
-        exclude = ()
-        # fields = (
-        #     'goods',
-        # )
+        # exclude = ()
+        fields = (
+            'goods',
+        )
