@@ -2,11 +2,12 @@ from django.http import HttpResponse
 from rest_framework.viewsets import GenericViewSet, mixins
 from rest_framework.permissions import IsAuthenticated
 
-from .models import Customer, Goods_Variation, Cart
+from .models import Customer, Goods_Variation, Cart, Order
 from .serializers import (
     ProfileSerializer,
     ShopSerializer,
     CartSerializer,
+    OrderSerializer,
 )
 
 
@@ -28,3 +29,10 @@ class CartView(GenericViewSet,
                mixins.CreateModelMixin):
     serializer_class = CartSerializer
     queryset = Cart.objects.all()
+
+
+class OrderView(GenericViewSet,
+               mixins.ListModelMixin,
+               mixins.CreateModelMixin):
+    serializer_class = OrderSerializer
+    queryset = Order.objects.all()

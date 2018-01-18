@@ -87,3 +87,7 @@ class CartSerializer(serializers.ModelSerializer):
         return user_cart
 
 
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cart
+        fields = '__all__'
