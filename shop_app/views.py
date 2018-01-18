@@ -24,8 +24,8 @@ class ShopView(GenericViewSet,
 
 
 class CartView(GenericViewSet,
-           mixins.ListModelMixin,
-           mixins.CreateModelMixin):
+               mixins.ListModelMixin,
+               mixins.CreateModelMixin):
     serializer_class = CartSerializer
     queryset = Cart.objects.all()
 

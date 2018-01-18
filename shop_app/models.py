@@ -24,7 +24,6 @@ class Good(models.Model):
     def __str__(self):
         return self.name
 
-
 class Goods_Variation(models.Model):
 
     parent = models.ForeignKey('Good', related_name="good")
@@ -37,12 +36,21 @@ class Goods_Variation(models.Model):
     def __str__(self):
         return self.parent.name + " " + self.variation_name
 
+    def category(self):
+        return self.parent.name
+
 
 class Cart(models.Model):
 
-    customer = models.ForeignKey(Customer, related_name="cart")
+    customer = models.ForeignKey(Customer, related_name="cart", blank=True, default=None, null=True)
 
     goods = models.ManyToManyField('Goods_Variation', related_name="in_cart")
+
+    def customer_name(self):
+        return self.customer.username
+
+    def customer_email(self):
+        return self.customer.email
 
 
 class Order(models.Model):
