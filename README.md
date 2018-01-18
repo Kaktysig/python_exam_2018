@@ -16,3 +16,13 @@ MacBook-Air-Kaktys% echo $!;
 ## python manage.py check --deploy --fail-level WARNING
 (.venv) MacBook-Air-Kaktys:python_exam_2018 Kaktysig$ python manage.py check --deploy --fail-level WARNING
 System check identified no issues (0 silenced).
+
+## pipenv check
+(.venv) MacBook-Air-Kaktys:python_exam_2018 Kaktysig$ pipenv check
+Checking PEP 508 requirements…
+Passed!
+Checking installed package safety…
+All good!
+
+## Heroku Auto deployind:
+https://kaktysig-python-exam.herokuapp.com/
