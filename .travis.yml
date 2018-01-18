@@ -15,8 +15,6 @@ deploy:
   api_key:
     - 82529779-fc29-4144-9a23-94862245ae7e
   app: kaktysig-python-exam
-  on:
-    repo: kaktyshiny/python_exam_2018
   run:
     - 'python manage.py makemigrations'
     - 'python manage.py migrate'
