@@ -22,8 +22,11 @@ class Admin_Goods_Variation(admin.ModelAdmin):
 
 
 class Admin_Cart(admin.ModelAdmin):
-    list_display = ('customer', 'good_count',)
+    list_display = ('customer_name', 'good_count',)
     search_fields = ['customer',]
+
+    def customer_id(self,obj):
+        return obj.customer.username
 
     def good_count(self, obj):
         return obj.goods.count()

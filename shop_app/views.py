@@ -28,7 +28,3 @@ class CartView(GenericViewSet,
                mixins.CreateModelMixin):
     serializer_class = CartSerializer
     queryset = Cart.objects.all()
-
-
-def base_view(request):
-    return HttpResponse("Test travis!")

@@ -19,14 +19,11 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from shop_app.views import base_view
 from shop_app import urls as shop_url
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-
-    url(r'^$', base_view, name='home'),
 
     # API:
     url(r'^api/v1/', include(shop_url)),

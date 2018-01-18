@@ -8,6 +8,7 @@ from shop_app.models import Customer, Goods_Variation, Cart
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    cart = serializers.IntegerField(write_only=True, default="")
     password = serializers.CharField(write_only=True)
     token = serializers.SerializerMethodField()
 
@@ -18,17 +19,19 @@ class ProfileSerializer(serializers.ModelSerializer):
             'email',
             'username',
             'password',
+            'cart',
         )
 
     def create(self, validated_data):
-
         user = Customer(
             email=validated_data['email'],
             username = validated_data['username']
         )
         user.set_password(validated_data['password'])
         user.save()
-
+        if validated_data['cart'] != "":
+            cart = get_object_or_404(Cart, id=validated_data['cart'])
+            cart.customer = user
         return user
 
     def get_token(self, obj):
