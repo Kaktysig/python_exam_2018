@@ -1,5 +1,10 @@
+from django.contrib.auth.base_user import AbstractBaseUser
 from django.db import models
-from django.contrib.auth.models import User
+
+
+class Customer(AbstractBaseUser):
+    username = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
 
 
 class Category(models.Model):
@@ -35,14 +40,14 @@ class Goods_Variation(models.Model):
 
 class Cart(models.Model):
 
-    customer = models.ForeignKey(User, related_name="cart")
+    customer = models.ForeignKey(Customer, related_name="cart")
 
     goods = models.ManyToManyField('Goods_Variation', related_name="in_cart")
 
 
 class Order(models.Model):
 
-    customer = models.ForeignKey(User, related_name="order")
+    customer = models.ForeignKey(Customer, related_name="order")
 
     address = models.CharField(max_length=150)
     datetime = models.DateField()
