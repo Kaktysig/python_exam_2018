@@ -30,6 +30,7 @@ radon = "*"
 pylint = "*"
 ipython = "*"
 sphinx = "*"
+sphinx-autodoc-typehints = "*"
 
 
 [packages]
